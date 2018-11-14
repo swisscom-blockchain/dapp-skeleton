@@ -1,15 +1,21 @@
 
 
 var web3 = new Web3(Web3.givenProvider || "ws://localhost:8545");
-console.log(web3);
+var defaultAddress;
 var contractInstance; 
 var eventCounter = 0;
+
+web3.eth.getAccounts().then(function(addresses){
+    defaultAddress = addresses[0];
+    var msg = "Default Address: " + defaultAddress;
+    showMessage(msg);
+});
 
 init = function() {
     var address = document.getElementById('address').value;
     console.log("Smart contract address:", address);
     contractInstance = new web3.eth.Contract(helloWorldABI, address, {
-        from: '0xA61391a90d17b4Fa2d525714f322Aa138afa8C71', // default from address
+        from: defaultAddress, // default from address
         gasPrice: '20000000000' // default gas price in wei, 20 gwei in this case
     });
 
@@ -23,14 +29,7 @@ eventCallback = function(error, result) {
         var event = result.event;
         var msg = result.returnValues[1];
         var message = "EventNbr: " + eventCounter++ + ", from: " + from + ", event: " + event + ", msg: " + msg;
-        console.log(message)
-
-        var node = document.createElement("div");
-        node.className = "alert alert-success";
-        var textnode = document.createTextNode(message);
-        node.appendChild(textnode);    
-        var list = document.getElementById("events");
-        list.insertBefore(node, list.childNodes[0]);
+        showMessage(message);
     }
 }
 
@@ -83,4 +82,14 @@ readNumber = function() {
 clearNumber = function() {
     console.log("Clear Number Clicked");
     document.getElementById('number').value = "";
+}
+
+showMessage = function(message) {
+    console.log(message);
+    var node = document.createElement("div");
+    node.className = "alert alert-success";
+    var textnode = document.createTextNode(message);
+    node.appendChild(textnode);    
+    var list = document.getElementById("events");
+    list.insertBefore(node, list.childNodes[0]);
 }
