@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script src="./v1.0.0-beta.36-web3.min.js"></script>
+<script src="./helloWorld.abi.js"></script>
+<script src="./helloWorld.js"></script>
+
+<h1>Hello World</h1>
+
+<table class="table">
+    <tr>
+        <td>
+            <label>Smart Contract Address:</label>
+        </td>
+        <td>
+            <input id="address" name="address" type="text" value="0x1b892a0eb51e216ba580104ab0e8d98ae294ede5"></input>
+        </td>
+        <td>
+            <button type="button" onclick=init()>Init</button>
+        </td>
+        <td>
+            <label> </label>
+        </td>
+        <td>
+            <label> </label>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Message:</label>
+        </td>
+        <td>
+            <input id="message" type="text"></input>
+        </td>
+        <td>
+            <button type="button" onclick=writeMessage()>Write</button>
+        </td>
+        <td>
+            <button type="button" onclick=readMessage()>Read</button>
+        </td>
+        <td>
+            <button type="button" onclick=clearMessage()>Clear</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Number:</label>
+        </td>
+        <td>
+            <input id="number" type="text"></input>
+        </td>
+        <td>
+            <button type="button">Write</button>
+        </td>
+        <td>
+            <button type="button">Read</button>
+        </td>
+        <td>
+            <button type="button">Clear</button>
+        </td>
+    </tr>
+</table>
+
+<button type="button"
+onclick="document.getElementById('demo').innerHTML = Date()">
+Click me to display Date and Time.</button>
+
+<p id="demo"></p>
+
+</body>
+</html> 

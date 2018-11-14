@@ -1,0 +1,14 @@
+{
+  "name": "dapp-skeleton",
+  "version": "1.0.0",
+  "description": "pure html and JS frontend and smart contract backend",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "truffle test"
+  },
+  "author": "kabl",
+  "license": "MIT"
+}
