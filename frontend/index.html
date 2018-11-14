@@ -1,72 +1,79 @@
 <!DOCTYPE html>
 <html>
+
 <body>
 
-<script src="./v1.0.0-beta.36-web3.min.js"></script>
-<script src="./helloWorld.abi.js"></script>
-<script src="./helloWorld.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="./v1.0.0-beta.36-web3.min.js"></script>
+    <script src="./helloWorld.abi.js"></script>
+    <script src="./helloWorld.js"></script>
 
-<h1>Hello World</h1>
+    <div class="jumbotron text-center">
+        <h1>Hello World</h1>
+        <p>Very basic DApp Frontend</p>
+    </div>
 
-<table class="table">
-    <tr>
-        <td>
-            <label>Smart Contract Address:</label>
-        </td>
-        <td>
-            <input id="address" name="address" type="text" value="0x1b892a0eb51e216ba580104ab0e8d98ae294ede5"></input>
-        </td>
-        <td>
-            <button type="button" onclick=init()>Init</button>
-        </td>
-        <td>
-            <label> </label>
-        </td>
-        <td>
-            <label> </label>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <label>Message:</label>
-        </td>
-        <td>
-            <input id="message" type="text"></input>
-        </td>
-        <td>
-            <button type="button" onclick=writeMessage()>Write</button>
-        </td>
-        <td>
-            <button type="button" onclick=readMessage()>Read</button>
-        </td>
-        <td>
-            <button type="button" onclick=clearMessage()>Clear</button>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <label>Number:</label>
-        </td>
-        <td>
-            <input id="number" type="text"></input>
-        </td>
-        <td>
-            <button type="button">Write</button>
-        </td>
-        <td>
-            <button type="button">Read</button>
-        </td>
-        <td>
-            <button type="button">Clear</button>
-        </td>
-    </tr>
-</table>
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <tr>
+                    <td>
+                        <label>Smart Contract Address:</label>
+                    </td>
+                    <td>
+                        <input id="address" name="address" type="text" class="form-control" value="0x1b892a0eb51e216ba580104ab0e8d98ae294ede5"></input>
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" onclick=init() class="btn btn-danger">Init</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Message:</label>
+                    </td>
+                    <td>
+                        <input id="message" type="text" class="form-control" />
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" onclick=writeMessage() class="btn btn-danger">Write</button>
+                            <button type="button" onclick=readMessage() class="btn btn-success">Read</button>
+                            <button type="button" onclick=clearMessage() class="btn">Clear</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Number:</label>
+                    </td>
+                    <td>
+                        <input id="number" type="text" class="form-control" />
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" onclick=writeNumber() class="btn btn-danger">Write</button>
+                            <button type="button" onclick=readNumber() class="btn btn-success">Read</button>
+                            <button type="button" onclick=clearNumber() class="btn">Clear</button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
 
-<button type="button"
-onclick="document.getElementById('demo').innerHTML = Date()">
-Click me to display Date and Time.</button>
+    <div class="container" id="events"></div>
 
-<p id="demo"></p>
-
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">Instruction</div>
+            <div class="panel-body">
+                Deploy first the smart contract with 'truffle deploy'.<br />
+                The address can be found with 'truffle networks'.
+            </div>
+        </div>
+    </div>
 </body>
-</html> 
+
+</html>
