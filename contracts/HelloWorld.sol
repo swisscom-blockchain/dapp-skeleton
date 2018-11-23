@@ -1,4 +1,4 @@
-pragma solidity ^0.4.25;
+pragma solidity 0.4.24;
 
 
 contract HelloWorld {
@@ -12,7 +12,7 @@ contract HelloWorld {
     constructor() public {
     }
 
-    function setMessage(string _message) public returns (bool) {
+    function setMessage(string memory _message) public returns (bool) {
         message = _message;
         emit NewMessage(msg.sender, message);
         return true;

@@ -7,7 +7,9 @@
     "test": "test"
   },
   "scripts": {
-    "test": "truffle test"
+    "test": "truffle test",
+    "coverage": "./node_modules/.bin/solidity-coverage",
+    "lint": "solhint contracts/*"
   },
   "author": "kabl",
   "license": "MIT"
