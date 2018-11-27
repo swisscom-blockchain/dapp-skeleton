@@ -8,9 +8,13 @@
   },
   "scripts": {
     "test": "truffle test",
-    "coverage": "./node_modules/.bin/solidity-coverage",
+    "coverage": "solidity-coverage",
     "lint": "solhint contracts/*"
   },
   "author": "kabl",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "solhint": "^1.4.0",
+    "solidity-coverage": "^0.5.11"
+  }
 }
