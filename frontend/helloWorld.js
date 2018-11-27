@@ -2,16 +2,16 @@
 
 var web3 = new Web3(Web3.givenProvider || "ws://localhost:8545");
 var defaultAddress;
-var contractInstance; 
+var contractInstance;
 var eventCounter = 0;
 
-web3.eth.getAccounts().then(function(addresses){
+web3.eth.getAccounts().then(function (addresses) {
     defaultAddress = addresses[0];
     var msg = "Your address Address: " + defaultAddress;
     showMessage(msg);
 });
 
-init = function() {
+init = function () {
     var address = document.getElementById('address').value;
     console.log("Smart contract address:", address);
     contractInstance = new web3.eth.Contract(helloWorldABI, address, {
@@ -22,9 +22,9 @@ init = function() {
     contractInstance.events.allEvents(eventCallback);
 }
 
-eventCallback = function(error, result) {
-    if(error) console.error("error:", error)
-    if(result) {
+eventCallback = function (error, result) {
+    if (error) console.error("error:", error)
+    if (result) {
         var from = result.returnValues.from;
         var event = result.event;
         var msg = result.returnValues[1];
@@ -33,63 +33,63 @@ eventCallback = function(error, result) {
     }
 }
 
-writeMessage = function() {
+writeMessage = function () {
     console.log("Write Message Clicked");
     var message = document.getElementById('message').value;
-    contractInstance.methods.setMessage(message).send().then(function(receipt){
+    contractInstance.methods.setMessage(message).send().then(function (receipt) {
         console.log(receipt);
     });
 }
 
-readMessage = function() {
+readMessage = function () {
     console.log("Read Message Clicked");
-    var message = contractInstance.methods.message().call(function(error, result){
+    var message = contractInstance.methods.message().call(function (error, result) {
         var msg;
-        if(error) msg = error;
-        if(result) msg = result;
+        if (error) msg = error;
+        if (result) msg = result;
         document.getElementById('message').value = msg;
         console.log("error:", error)
         console.log("result:", result)
     });
 }
 
-clearMessage = function() {
+clearMessage = function () {
     console.log("Clear Message Clicked");
     document.getElementById('message').value = "";
 }
 
 
-writeNumber = function() {
+writeNumber = function () {
     console.log("Write Number Clicked");
     var message = document.getElementById('number').value;
-    contractInstance.methods.setNumber(message).send().then(function(receipt){
+    contractInstance.methods.setNumber(message).send().then(function (receipt) {
         console.log(receipt);
     });
 }
 
-readNumber = function() {
+readNumber = function () {
     console.log("Read Number Clicked");
-    var message = contractInstance.methods.number().call(function(error, result){
+    var message = contractInstance.methods.number().call(function (error, result) {
         var msg;
-        if(error) msg = error;
-        if(result) msg = result;
+        if (error) msg = error;
+        if (result) msg = result;
         document.getElementById('number').value = msg;
         console.log("error:", error)
         console.log("result:", result)
     });
 }
 
-clearNumber = function() {
+clearNumber = function () {
     console.log("Clear Number Clicked");
     document.getElementById('number').value = "";
 }
 
-showMessage = function(message) {
+showMessage = function (message) {
     console.log(message);
     var node = document.createElement("div");
     node.className = "alert alert-success";
     var textnode = document.createTextNode(message);
-    node.appendChild(textnode);    
+    node.appendChild(textnode);
     var list = document.getElementById("events");
     list.insertBefore(node, list.childNodes[0]);
 }

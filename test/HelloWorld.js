@@ -8,7 +8,7 @@ contract('Hello World', async (accounts) => {
         let instance = await TrackParcel.new();
 
         await instance.setMessage("Hello World!");
-        
+
         let result = await instance.message();
         assert.equal(result, "Hello World!");
     })
@@ -17,7 +17,7 @@ contract('Hello World', async (accounts) => {
         let instance = await TrackParcel.new();
 
         await instance.setNumber(43);
-        
+
         let result = await instance.number();
         assert.equal(result.toNumber(), 43);
     })
