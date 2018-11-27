@@ -7,7 +7,15 @@ Very simple application. It contains two parts:
 
 ## Requirements
 
-### Smart Contract
+Following tools are required:
+
+- Truffle
+- NPM
+- Python
+
+The first time you checkout the project run a `npm install`.
+
+## Smart Contract
 
 It's a truffle project
 
@@ -27,8 +35,22 @@ truffle deploy
 truffle networks
 ```
 
-### Frontend
+## Frontend
 
 You can just open the index.html. In that case it will use the accounts from ganache-cli.
 
 You can serve the frontend through a simple web-server `frontend/start-webserver.sh` (Python required). And access it through `http://localhost:8000`
+
+## Troubleshooting
+
+There are sometimes issues with the frontend. Make sure these steps:
+
+- Use Chrome
+- Unlock MetaMask and refresh
+- Open the Browsers "Console" by pressing F12. Check the logs
+- Refresh the page (pressing F5) with unlocked MetaMask
+- Doublecheck the smart contract address with the address configure in the frontend
+- Make sure you started `ganache-cli` with the right Mnemonic
+- Make sure you initialized MetaMask with the exactly the same Mnemonic
+- If you modified the smart contract make sure update the ABI in the frontend
+- If you redeploy the smart contract make sure you're using the new address in the frontend
