@@ -31,7 +31,7 @@ truffle test
 # Deploy the smart contracts
 truffle deploy
 
-# Retriev the addresses from deployed contracts
+# Retrieve the addresses from deployed contracts
 truffle networks
 ```
 
