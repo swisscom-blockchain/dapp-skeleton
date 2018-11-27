@@ -7,7 +7,7 @@ var eventCounter = 0;
 
 web3.eth.getAccounts().then(function(addresses){
     defaultAddress = addresses[0];
-    var msg = "Default Address: " + defaultAddress;
+    var msg = "Your address Address: " + defaultAddress;
     showMessage(msg);
 });
 
