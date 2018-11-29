@@ -54,3 +54,13 @@ There are sometimes issues with the frontend. Make sure these steps:
 - Make sure you initialized MetaMask with the exactly the same Mnemonic
 - If you modified the smart contract make sure update the ABI in the frontend
 - If you redeploy the smart contract make sure you're using the new address in the frontend
+
+## Deployment to Rinkeby
+
+Checkout `truffle-config.js`
+
+```bash
+# Deploy to the 'rinkeby' network
+# Set your private key in the 'truffle-config.js' file
+truffle deploy --network rinkeby
+```
