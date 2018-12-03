@@ -12,7 +12,10 @@ const CONTRACT_ABI = JSON.parse(ABI_STRING);
 
 // ganache-cli -m "venture truth carry onion picnic wrong youth purchase injury cloud security danger"
 // account[0] is 0xf04ccf7ee1726fcdfc5d1b88210a36a247a09c7ac12c78561e6c211907f97511
-const addr0 = "0xa61391a90d17b4fa2d525714f322aa138afa8c71";
+const ganacheAddr0 = "0xa61391a90d17b4fa2d525714f322aa138afa8c71";
+
+const privateKeyBob = "dfbf2c51e6fc3db565ccba01de53644f4470cfb6c23b7ee02a5d333aec064748";
+const privateKeyAlice = "c56c343fb8db3c1b4ad66e22eb7b3327bb3e7dbf6727a1c3afe9da2ff6320860";
 
 eventCallback = function (error, result) {
     if (error) console.error("error:", error)
@@ -26,8 +29,7 @@ eventCallback = function (error, result) {
 }
 
 // Creates a new account and adding some ether.
-async function createAccount(web3) {
-    var privateKey = 'dfbf2c51e6fc3db565ccba01de53644f4470cfb6c23b7ee02a5d333aec064748';
+async function createAccount(web3, privateKey) {
     const account = web3.eth.accounts.privateKeyToAccount('0x' + privateKey);
     web3.eth.accounts.wallet.add(account);
     web3.eth.defaultAccount = account.address;
@@ -36,11 +38,18 @@ async function createAccount(web3) {
 
     var value = web3.utils.toWei('1', 'Ether');
     await web3.eth.sendTransaction({
-        from: addr0, 
+        from: ganacheAddr0, 
         to: account.address, 
         value: value 
     });
     return account.address;
+}
+
+async function writeMessage(contractInstance, sender, message) {
+    await contractInstance.methods.setMessage(message).send({ 
+        from: sender, 
+        gas: 900000
+    });
 }
 
 async function run() {
@@ -50,13 +59,11 @@ async function run() {
     const contractInstance = new web3.eth.Contract(CONTRACT_ABI, CONTRACT_ADDRESS);
     contractInstance.events.allEvents(eventCallback); // this only works with websocket 'ws://..' connection
 
-    var newAddress = await createAccount(web3);
-    var message = "Hello smart contract!";
-    console.log("Write message: " + message);
-    await contractInstance.methods.setMessage(message).send({ 
-        from: newAddress, 
-        gas: 900000
-    });
+    var bob = await createAccount(web3, privateKeyBob);
+    var alice = await createAccount(web3, privateKeyAlice);
+
+    await writeMessage(contractInstance, bob, "Hello Alice!");
+    await writeMessage(contractInstance, alice, "Hi Bob!");
 
     var message = await contractInstance.methods.message().call();
     console.log("Read message: " + message);
