@@ -49,7 +49,7 @@ There are sometimes issues with the frontend. Make sure these steps:
 - Unlock MetaMask and refresh
 - Open the Browsers "Console" by pressing F12. Check the logs
 - Refresh the page (pressing F5) with unlocked MetaMask
-- Doublecheck the smart contract address with the address configure in the frontend
+- Double check the smart contract address with the address configure in the frontend
 - Make sure you started `ganache-cli` with the right Mnemonic
 - Make sure you initialized MetaMask with the exactly the same Mnemonic
 - If you modified the smart contract make sure update the ABI in the frontend
