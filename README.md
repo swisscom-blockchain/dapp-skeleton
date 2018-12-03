@@ -33,6 +33,9 @@ truffle deploy
 
 # Retrieve the addresses from deployed contracts
 truffle networks
+
+# Start the frontend
+./frontend/start-webserver.sh
 ```
 
 ## Frontend
