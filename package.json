@@ -8,13 +8,19 @@
   "scripts": {
     "test": "truffle test",
     "coverage": "solidity-coverage",
-    "lint": "solhint contracts/*"
+    "lint": "solhint contracts/*",
+    "build": "truffle compile",
+    "flat": "truffle-flattener contracts/HelloWorld.sol > ./HelloWorld.sol"
   },
   "author": "kabl",
   "license": "MIT",
   "devDependencies": {
     "solhint": "^1.4.0",
     "solidity-coverage": "^0.5.11",
+    "truffle-flattener": "^1.2.10",
     "truffle-privatekey-provider": "^1.0.0"
+  },
+  "dependencies": {
+    "openzeppelin-solidity": "^2.0.0"
   }
 }
