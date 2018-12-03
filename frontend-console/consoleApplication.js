@@ -35,7 +35,11 @@ async function createAccount(web3) {
     console.log("Address is: " + account.address);
 
     var value = web3.utils.toWei('1', 'Ether');
-    await web3.eth.sendTransaction({from:addr0, to:account.address, value: value});
+    await web3.eth.sendTransaction({
+        from: addr0, 
+        to: account.address, 
+        value: value 
+    });
     return account.address;
 }
 
@@ -49,7 +53,10 @@ async function run() {
     var newAddress = await createAccount(web3);
     var message = "Hello smart contract!";
     console.log("Write message: " + message);
-    await contractInstance.methods.setMessage(message).send({from: newAddress, gas: 1000000});
+    await contractInstance.methods.setMessage(message).send({ 
+        from: newAddress, 
+        gas: 900000
+    });
 
     var message = await contractInstance.methods.message().call();
     console.log("Read message: " + message);
