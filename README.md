@@ -31,11 +31,17 @@ truffle test
 # Deploy the smart contracts
 truffle deploy
 
+# Check the output. If the address if different adjust it in the index.html
+# HelloWorld.sol address: 0xfcbcde1df4bcc3a65bb0b842b9fb5b5a7b8e277f
+
 # Retrieve the addresses from deployed contracts
 truffle networks
 
 # Start the frontend
-./frontend/start-webserver.sh
+cd frontend
+python -m SimpleHTTPServer
+
+# Open Browser: http://localhost:8000
 ```
 
 ## Frontend
