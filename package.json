@@ -10,7 +10,7 @@
     "coverage": "solidity-coverage",
     "lint": "solhint contracts/*",
     "build": "truffle compile",
-    "flat": "truffle-flattener contracts/HelloWorld.sol > ./HelloWorld.sol"
+    "flat": "truffle-flattener contracts/HelloWorld.sol > ./HelloWorldFlat.sol"
   },
   "author": "kabl",
   "license": "MIT",
