@@ -73,3 +73,7 @@ Checkout `truffle-config.js`
 # Set your private key in the 'truffle-config.js' file
 truffle deploy --network rinkeby
 ```
+
+### Past deployments
+
+2018-12-04 Deployment: https://rinkeby.etherscan.io/address/0x5eace2370d25b0109fb16da51f2ab6e620d08ad5

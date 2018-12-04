@@ -1,5 +1,5 @@
 const PrivateKeyProvider = require("truffle-privatekey-provider");
-var privKeyrinkeby = "<YOUR-PRIVATE-KEY>";
+var privKeyrinkeby = "<YOUR-PRIVATE-KEY-HERE>";
 
 module.exports = {
   networks: {
