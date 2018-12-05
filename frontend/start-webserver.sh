@@ -1,6 +1,6 @@
 #!/bin/bash
 
-xdg-open http://localhost:8000
+xdg-open http://localhost:8000 &
 
 echo ""
 echo "==== ---- ====="
