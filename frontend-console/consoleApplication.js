@@ -2,11 +2,13 @@ var fs = require('fs');
 /*
  * https://web3js.readthedocs.io/en/1.0/
  * This is Web3 version 1.x. It's not compatible with the version 0.2x which is used by Truffle
+ * 
+ * REQUIRED: "web3": "^1.0.0-beta.38"
  */
 const Web3 = require('web3');
 
 //const RPC_ENDPOINT = 'http://localhost:8545';
-const CONTRACT_ADDRESS = '0xfcbcde1df4bcc3a65bb0b842b9fb5b5a7b8e277f'
+const CONTRACT_ADDRESS = '0xef3809748F4Cea51aA3322815F015BbBE6e6F65B'
 const ABI_STRING = fs.readFileSync('./helloWorld.abi.json', 'UTF-8');
 const CONTRACT_ABI = JSON.parse(ABI_STRING);
 
@@ -62,6 +64,7 @@ async function run() {
     var bob = await createAccount(web3, privateKeyBob);
     var alice = await createAccount(web3, privateKeyAlice);
 
+    console.log("Write message");
     await writeMessage(contractInstance, bob, "Hello Alice!");
     await writeMessage(contractInstance, alice, "Hi Bob!");
 
