@@ -1,4 +1,4 @@
-pragma solidity ^0.4.24;
+pragma solidity ^0.5.0;
 
 
 contract HelloWorld {
@@ -20,6 +20,7 @@ contract HelloWorld {
 
     function setNumber(uint256 _number) public returns (bool) {
         number = _number;
+        
         emit NewNumber(msg.sender, number);
         return true;
     }

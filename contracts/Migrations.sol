@@ -1,4 +1,4 @@
-pragma solidity ^0.4.23;
+pragma solidity ^0.5.0;
 
 
 //actually this contract is only needed that "npm run coverage" is working
