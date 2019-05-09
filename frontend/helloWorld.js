@@ -1,15 +1,13 @@
-
-
-var web3 = new Web3(Web3.givenProvider || "ws://localhost:8545");
+var web3 = new Web3(window.ethereum || "ws://localhost:8545");
 var defaultAddress;
 var contractInstance;
 var eventCounter = 0;
 
-web3.eth.getAccounts().then(function (addresses) {
+window.ethereum.enable().then(function (addresses) {
     defaultAddress = addresses[0];
     var msg = "Your address Address: " + defaultAddress;
     showMessage(msg);
-});
+})
 
 init = function () {
     var address = document.getElementById('address').value;
