@@ -38,8 +38,7 @@ truffle deploy
 truffle networks
 
 # Start the frontend
-cd frontend
-python -m SimpleHTTPServer
+http-server frontend
 
 # Open Browser: http://localhost:8000
 ```
