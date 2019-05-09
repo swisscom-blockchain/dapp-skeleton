@@ -38,17 +38,16 @@ truffle deploy
 truffle networks
 
 # Start the frontend
-cd frontend
-python -m SimpleHTTPServer
+npm run serve
 
-# Open Browser: http://localhost:8000
+# Open Browser: http://localhost:8080
 ```
 
 ## Frontend
 
 You can just open the index.html. In that case it will use the accounts from ganache-cli.
 
-You can serve the frontend through a simple web-server `frontend/start-webserver.sh` (Python required). And access it through `http://localhost:8000`
+You can serve the frontend through a simple web-server `npm run serve`. And access it through `http://localhost:8080`
 
 ## Troubleshooting
 
