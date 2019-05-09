@@ -38,9 +38,9 @@ truffle deploy
 truffle networks
 
 # Start the frontend
-http-server frontend
+npm run serve
 
-# Open Browser: http://localhost:8000
+# Open Browser: http://localhost:8080
 ```
 
 ## Frontend
